@@ -1,0 +1,21 @@
+name: Upload Test to Google Drive
+
+on:
+  workflow_dispatch:
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Create test file
+        run: echo "This is a test file from MeGPT GitHub Actions" > test-upload.txt
+
+      - name: Upload to Google Drive
+        uses: Jumbo810/Upload_Github_Artifacts_TO_GDrive@v2.3.1
+        with:
+          target: "test-upload.txt"
+          credentials: ${{ secrets.GOOGLE_SERVICE_ACCOUNT }}
+          parent_folder_id: ${{ secrets.GOOGLE_DRIVE_FOLDER_ID }}
