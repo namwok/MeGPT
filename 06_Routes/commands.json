@@ -1,0 +1,9 @@
+{
+  "commands": [
+    {"name": "/post", "profile": "content_creation", "checklist": "03_Checklists/content_publish_checklist.md"},
+    {"name": "/pitch", "profile": "sales_outreach", "checklist": "03_Checklists/sales_reply_checklist.md"},
+    {"name": "/proposal", "profile": "healthcare_proposal", "checklist": "03_Checklists/proposal_quality_checklist.md"},
+    {"name": "/proscons", "profile": "personal_decisions", "checklist": "03_Checklists/decision_scoring_checklist.md"},
+    {"name": "/practiceplan", "profile": "projects_ops", "checklist": "03_Checklists/project_snapshot_checklist.md"}
+  ]
+}
