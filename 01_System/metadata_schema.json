@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "doc_tags": ["doc", "audience", "tone", "domain", "pillar", "project", "visibility"],
+  "defaults": {"tone": "confident, compassionate, concise", "visibility": "internal"},
+  "examples": [
+    {"doc": "content_playbook", "audience": "public", "tone": "business", "pillar": "content"},
+    {"doc": "healthcare_ehr_training", "domain": "healthcare", "pillar": "EHR", "audience": "CIO"},
+    {"doc": "family_knowledge_base", "audience": "private", "visibility": "private"}
+  ]
+}
