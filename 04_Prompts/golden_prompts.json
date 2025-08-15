@@ -1,0 +1,16 @@
+{
+  "email_messaging": {
+    "sales_outreach_healthcare_cio": "Write a short, human LinkedIn or email outreach for a [Role] at a [Type of org] dealing with [Pain]. Acknowledge context, share one proof or insight, invite a light 15-min compare-notes. Use my voice and outreach playbook. Max 120 words.",
+    "reconnection_followup": "Follow up with [Contact] referencing [Shared Reference] and reminding them of [Value Reminder]. Friendly, low-pressure. End with an open question. Max 3 sentences."
+  },
+  "marketing_content": {
+    "linkedin_personal_hook": "Write a LinkedIn post with a bold hook, a short personal story about [Topic], one practical insight, and a closing question. My voice. Max 200 words.",
+    "carousel_value_first": "Create copy for a LinkedIn carousel for [Audience] with [Problem]. Give 3 useful insights before any CTA. Close with a relevant offer."
+  },
+  "coaching": {
+    "practice_plan": "Design a basketball practice for [Age] focused on [Skill] for [Minutes] minutes. Warm-up, drills, scrimmage, cool-down, with coaching points."
+  },
+  "automation_systems": {
+    "workflow_automation": "Map an automation plan for [Process]. Show current steps, suggested automations, tools, and a before/after table with time saved."
+  }
+}
