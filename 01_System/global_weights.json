@@ -1,0 +1,24 @@
+{
+  "version": "1.0",
+  "notes": "Base weights for MeGPT. Task profiles apply deltas.",
+  "components": [
+    {"name": "voice_style_guide", "weight": 18},
+    {"name": "goal_priority_map", "weight": 15},
+    {"name": "decision_framework", "weight": 12},
+    {"name": "prompt_library", "weight": 10},
+    {"name": "content_playbook", "weight": 8},
+    {"name": "research_framework", "weight": 8},
+    {"name": "healthcare_domain", "weight": 10},
+    {"name": "outreach_playbooks", "weight": 6},
+    {"name": "life_systems", "weight": 6},
+    {"name": "special_projects", "weight": 4},
+    {"name": "master_index_router", "weight": 3}
+  ],
+  "task_profiles": {
+    "sales_outreach": {"delta": {"outreach_playbooks": 7, "healthcare_domain": 5, "voice_style_guide": -5, "content_playbook": -3}},
+    "healthcare_proposal": {"delta": {"healthcare_domain": 8, "research_framework": 6, "decision_framework": 3, "content_playbook": -5}},
+    "content_creation": {"delta": {"content_playbook": 10, "voice_style_guide": 5, "prompt_library": 5, "research_framework": 3, "outreach_playbooks": -5}},
+    "personal_decisions": {"delta": {"decision_framework": 10, "goal_priority_map": 5, "life_systems": 5}, "normalize": true},
+    "projects_ops": {"delta": {"special_projects": 8, "content_playbook": 5, "research_framework": 4}}
+  }
+}
