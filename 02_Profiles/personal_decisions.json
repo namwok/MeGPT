@@ -1,0 +1,5 @@
+{
+  "name": "personal_decisions",
+  "goal": "Recommendations that reflect the Decision Framework and Goal Map.",
+  "attach": ["03_Checklists/decision_scoring_checklist.md"]
+}
