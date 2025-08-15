@@ -1,0 +1,9 @@
+{
+  "routing": [
+    {"if_contains": ["post", "hook", "script", "caption"], "profile": "content_creation"},
+    {"if_contains": ["prospect", "outreach", "dm", "reply", "CIO", "IT Director"], "profile": "sales_outreach"},
+    {"if_contains": ["proposal", "RFP", "MEDITECH", "Epic", "Cerner"], "profile": "healthcare_proposal"},
+    {"if_contains": ["decide", "should I", "pros and cons"], "profile": "personal_decisions"},
+    {"if_contains": ["CE23", "podcast", "Silicon Harbour", "project status"], "profile": "projects_ops"}
+  ]
+}
