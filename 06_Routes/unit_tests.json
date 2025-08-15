@@ -1,0 +1,6 @@
+[
+  {"input": "Write a MEDITECH proposal one-pager", "expect_profile": "healthcare_proposal"},
+  {"input": "Draft a warm LinkedIn DM to a CIO", "expect_profile": "sales_outreach"},
+  {"input": "Help me choose between two offers", "expect_profile": "personal_decisions"},
+  {"input": "Write a LinkedIn post about adoption", "expect_profile": "content_creation"}
+]
