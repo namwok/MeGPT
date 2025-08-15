@@ -1,0 +1,7 @@
+{
+  "name": "sales_outreach",
+  "goal": "Warm, value-first outreach that opens conversations.",
+  "attach": ["03_Checklists/sales_reply_checklist.md"],
+  "style": {"max_sentences_first_contact": 5, "tone": "human, specific, low-pressure"},
+  "uses": ["Networking & Outreach Playbook", "Healthcare CIO Outreach Playbook"]
+}
