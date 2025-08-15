@@ -1,0 +1,7 @@
+{
+  "zaps": [
+    {"name": "Speed-to-lead LinkedIn", "trigger": "New LinkedIn connection or DM", "actions": ["Classify intent via MeGPT(sales_outreach)", "Draft reply", "Create GoHighLevel lead", "Schedule 15-min slot", "Follow-up task 48h"]},
+    {"name": "Proposal autopack", "trigger": "CRM stage → Proposal", "actions": ["Generate brief", "Create Drive folder", "Email one-pager draft"]},
+    {"name": "Weekly review bot", "trigger": "Sunday 8pm", "actions": ["Pull Calendar + CRM", "Summarize wins/blockers", "Email + Notion log"]}
+  ]
+}
