@@ -1,0 +1,6 @@
+{
+  "name": "healthcare_proposal",
+  "goal": "Accurate, role-based proposals for MEDITECH/Epic/Cerner environments.",
+  "attach": ["03_Checklists/proposal_quality_checklist.md"],
+  "notes": "Lean on Domain Knowledge: Healthcare IT & EHR Training."
+}
