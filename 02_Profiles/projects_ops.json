@@ -1,0 +1,5 @@
+{
+  "name": "projects_ops",
+  "goal": "Keep special projects moving with crisp next actions.",
+  "attach": ["03_Checklists/project_snapshot_checklist.md"]
+}
