@@ -1,0 +1,79 @@
+name: Fieldy Meeting Intelligence
+
+on:
+  schedule:
+    # Paired UTC times cover both Newfoundland daylight and standard time.
+    # The Python process checks America/St_Johns and exits outside the exact
+    # 8:00, 12:30, and 20:00 local windows.
+    - cron: "30 10,11,22,23 * * *"
+    - cron: "0 15,16 * * *"
+  workflow_dispatch:
+    inputs:
+      lookback_hours:
+        description: "How many hours of Fieldy conversations to check"
+        required: false
+        default: "72"
+      force:
+        description: "Run immediately outside the normal local-time windows"
+        required: false
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+  models: read
+
+concurrency:
+  group: fieldy-meeting-intelligence
+  cancel-in-progress: false
+
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: 09_Projects/fieldy-intelligence-pipeline/requirements.txt
+
+      - name: Install dependencies
+        run: pip install -r 09_Projects/fieldy-intelligence-pipeline/requirements.txt
+
+      - name: Run unit tests
+        working-directory: 09_Projects/fieldy-intelligence-pipeline
+        run: python -m unittest discover -s tests -v
+
+      - name: Check required credentials
+        id: credentials
+        env:
+          FIELDY_API_KEY: ${{ secrets.FIELDY_API_KEY }}
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+        run: |
+          if [[ -z "$FIELDY_API_KEY" || -z "$NOTION_API_KEY" ]]; then
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "Fieldy pipeline is installed and waiting for FIELDY_API_KEY and NOTION_API_KEY repository secrets."
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Process Fieldy conversations
+        if: steps.credentials.outputs.ready == 'true'
+        working-directory: 09_Projects/fieldy-intelligence-pipeline
+        env:
+          FIELDY_API_KEY: ${{ secrets.FIELDY_API_KEY }}
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_MODEL: openai/gpt-4.1
+          LOOKBACK_HOURS: ${{ github.event.inputs.lookback_hours || '36' }}
+        run: |
+          FORCE_FLAG=""
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ github.event.inputs.force }}" == "true" ]]; then
+            FORCE_FLAG="--force"
+          fi
+          python run.py $FORCE_FLAG
